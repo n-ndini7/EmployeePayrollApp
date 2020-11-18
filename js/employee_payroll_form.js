@@ -65,9 +65,19 @@ function save(){
    const year = document.getElementById("year").value;
     var note = document.getElementById("notes").value;
     let startDate =new Date(year+"-"+month+"-"+day);
-
    const employeepayrollData = new EmployeePayrollData(name, salary, gender,startDate, departments, profile, note);
   
    alert("Thanks! Your form is submitted successfully!" + "\n "+employeepayrollData.toString());
    console.log(employeepayrollData);
+   createAndUpdateStorage(employeepayrollData);
+  }
+  function createAndUpdateStorage(employeepayrollData){
+      let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+      if(employeePayrollList != undefined){
+          employeePayrollList.push(employeepayrollData);
+      }else{
+          employeePayrollList = [employeepayrollData];
+      }
+      alert("Added Object to the local Storage"+employeePayrollList.toString());
+      localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
   }
