@@ -26,6 +26,7 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your Name.." required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
@@ -74,7 +75,7 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="salary">Choose Your Salary: </label>
-                <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" oninput="salaryInput()">
+                <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" onclick="salaryInput()">
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
@@ -135,6 +136,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>

@@ -11,12 +11,12 @@ class EmployeePayrollData{
     get name(){
         return this._name;
     }
+    //setter with regex for validation of name
     set name(name){
         let nameRegex =RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
         if(nameRegex.test(name))
         this._name = name;
         else {
-        alert("Name is incorrect!");
         throw "Name is Incorrect!! "+name;
        }
     }
@@ -48,14 +48,14 @@ class EmployeePayrollData{
     get startDate(){
         return this._startDate;
     }
+    //setter with regex for validation of start date
     set startDate(startDate){
         if(startDate.getMonth()<=(new Date()).getMonth()
         &&startDate.getDay()<=(new Date()).getDay()
         &&startDate.getFullYear()<=(new Date()).getFullYear())
          this._startDate = startDate;
         else
-       { 
-           alert("Start Date is invalid."); 
+       {  
             throw "Invalid Start date "+startDate;
         }
     }
