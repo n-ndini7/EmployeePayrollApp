@@ -50,10 +50,8 @@ class EmployeePayrollData{
     }
     //setter with regex for validation of start date
     set startDate(startDate){
-        if(startDate.getMonth()<=(new Date()).getMonth()
-        &&startDate.getDay()<=(new Date()).getDay()
-        &&startDate.getFullYear()<=(new Date()).getFullYear())
-         this._startDate = startDate;
+        if(startDate<=new Date())
+         this._startDate = startDate.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
         else
        {  
             throw "Invalid Start date "+startDate;
@@ -66,8 +64,8 @@ class EmployeePayrollData{
         this._notes=notes;
     }
     toString(){
-        const options = { year: 'numeric', month: 'long' , day: 'numeric'};
-        const empDate = this.startDate === undefined ? "undefined":this.startDate.toLocaleDateString("en-US",options);
-        return  "Name = "+this.name+", Salary = "+this.salary+" ,Gender = "+this.gender+" ,Start date = "+empDate+" ,Department = "+this.department+" ,Profile = "+this.profile+" ,Notes = "+this.notes;
+        //const options = { year: 'numeric', month: 'long' , day: 'numeric'};
+        //const empDate = this.startDate === undefined ? "undefined":this.startDate.toLocaleDateString("en-US",options);
+        return  "Name = "+this.name+", Salary = "+this.salary+" ,Gender = "+this.gender+" ,Start date = "+this.startDate+" ,Department = "+this.department+" ,Profile = "+this.profile+" ,Notes = "+this.notes;
     }
 }
