@@ -99,3 +99,4 @@ const unsetSelectedValues = (propertyValue) => {
         item.checked = false;
     });
 }
+//localStorage.clear();
