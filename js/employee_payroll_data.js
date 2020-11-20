@@ -63,9 +63,15 @@ class EmployeePayrollData{
     set notes(notes){
         this._notes=notes;
     }
+    get id(){
+        return this._id;
+    }
+    set id(id){
+        this._id = id;
+    }
     toString(){
         //const options = { year: 'numeric', month: 'long' , day: 'numeric'};
         //const empDate = this.startDate === undefined ? "undefined":this.startDate.toLocaleDateString("en-US",options);
-        return  "Name = "+this.name+", Salary = "+this.salary+" ,Gender = "+this.gender+" ,Start date = "+this.startDate+" ,Department = "+this.department+" ,Profile = "+this.profile+" ,Notes = "+this.notes;
+        return  "ID = "+this.id+"Name = "+this.name+", Salary = "+this.salary+" ,Gender = "+this.gender+" ,Start date = "+this.startDate+" ,Department = "+this.department+" ,Profile = "+this.profile+" ,Notes = "+this.notes;
     }
 }

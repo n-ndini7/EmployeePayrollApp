@@ -57,7 +57,8 @@ function save(){
             departments.push(departmentsForm[i].value);
     }
     
-    var salary = document.getElementById("salary").value;
+    var sal = document.getElementById("salary").value;
+    var salary = currencyConvertorToINR(sal);
    const day = document.getElementById("day").value;
    const month = document.getElementById("month").value;
    const year = document.getElementById("year").value;
@@ -99,4 +100,8 @@ const unsetSelectedValues = (propertyValue) => {
         item.checked = false;
     });
 }
+function currencyConvertorToINR($number ) {
+    return (isNaN(parseInt($number))) ?  0 : '₹ ' +  parseInt($number).toLocaleString('en-IN')
+  }
+//console.log(currencyConvertorToINR(1000000));
 //localStorage.clear();
