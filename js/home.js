@@ -1,12 +1,19 @@
+let empPayrollList;
 window.addEventListener("DOMContentLoaded", (event) => {
-    createInnerHtml();
+   empPayrollList = getEmployeePayrollDataFromStorage();
+   document.querySelector(".emp-count").textContent = empPayrollList.length;
+   createInnerHtml();
+   localStorage.removeItem('editemp');
  });
-
+const getEmployeePayrollDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList')?JSON.parse(localStorage.getItem('EmployeePayrollList')):[];
+}
  function createInnerHtml() {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
+    if(empPayrollList.length == 0) return;
     let innerHtml = `${headerHtml}`;
     let employeePayrollList = createEmployeePayrollJSON();
-    for(const employeePayrollData of employeePayrollList){
+    for(const employeePayrollData of empPayrollList){
                 innerHtml =`${innerHtml}
                 <tr>
                     <td><img class="profile" alt="" src="${employeePayrollData._profile}"></td>
@@ -65,6 +72,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
             _notes: "fourth entry!",
             _profile: "../assets/profile-images/Ellipse 1.png",
             _startDate: "8/16/2020, 12:00:00 AM"
+         },
+         {
+             _id: new Date().getTime(),
+            _name: "Kajol Bairwa",
+             _salary: "₹ 4,20,700", 
+             _gender: "female", 
+            _department: ["Sales"],
+            _notes: "fifth entry!",
+            _profile: "../assets/profile-images/Ellipse 1.png",
+            _startDate: "2/14/2020, 12:00:00 AM"
+         },
+         {
+             _id: new Date().getTime(),
+             _name: "Rudransh Sharms", 
+             _salary: "₹ 4,42,800",
+              _gender: "male",
+            _department: ["HR", "Sales"],
+            _notes: "sixth entry!",
+            _profile: "../assets/profile-images/Ellipse -8.png",
+            _startDate: "11/1/2020, 12:00:00 AM"
          }
      ];
      return employeePayrollListLocal;
