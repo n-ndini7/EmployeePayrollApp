@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
     name.addEventListener('input',function(){
-        let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+        let nameRegex = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
         if(nameRegex.test(name.value)||name.value.length==0)
             textError.textContent="";
         else 
@@ -19,9 +19,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
     function checkStartDate() {
         startDate = new Date(year.value+"-"+month.value+"-"+day.value);
         console.log(startDate);
-        if(startDate.getMonth()<=(new Date()).getMonth()
-        &&startDate.getDay()<=(new Date()).getDay()
-        &&startDate.getFullYear()<=(new Date()).getFullYear())
+        if(startDate<=new Date())
          dateError.textContent="";
         else
        dateError.textContent = "Invalid Start date ";
