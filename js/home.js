@@ -35,6 +35,8 @@ const getEmployeePayrollDataFromStorage = () => {
  const remove = (node) => {
      var answer = window.confirm("Are you sure you want to delete the details of "+node.name+" from database ?");
    if(answer){
+    var answer2 = window.confirm("Warning!! \nData once removed cannot be restored. \n Do you still wish to continue? ");
+    if(answer2){
      let employeePayrollData = empPayrollList.find( empData => empData._name == node.name);
    if(!employeePayrollData) return;
    const index = empPayrollList.map(empData => empData._name).indexOf(employeePayrollData._name);
@@ -43,18 +45,32 @@ const getEmployeePayrollDataFromStorage = () => {
    document.querySelector(".emp-count").textContent = empPayrollList.length;
    alert("User Details of "+node.name+" deleted successfully!");
    createInnerHtml();
-   }
+   }else{
+    location.reload();
+}
+}
    else {
-       location.reload();
+    alert("Reloading the current page..");
+    location.reload();
    }
 };
 const update = (node) => {
-    console.log(node.name);
+    var answer = window.confirm("Are you sure you want to update the details of "+node.name+" from database ?");
+   if(answer){
+       var answer2 = window.confirm("!!Warning!! \n \nData once updated cannot be restored. \n Do you still wish to continue? ");
+        if(answer2){
     let employeePayrollData = empPayrollList.find(empData => empData._name == node.name)
     console.log(employeePayrollData);
     if(!employeePayrollData) return;
     localStorage.setItem('editEmp',JSON.stringify(employeePayrollData))
     window.location.replace(site_properties.add_emp_payroll_page);
+   }else{
+       location.reload();
+   }
+}else{
+    alert("Reloading the current page..");
+       location.reload();
+   }
 };
  const getDeptHtml = (deptList) => {
      let deptHtml = '';
