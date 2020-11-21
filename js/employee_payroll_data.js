@@ -50,13 +50,13 @@ class EmployeePayrollData{
     }
     //setter with regex for validation of start date
     set startDate(startDate){
-        if(startDate<=new Date())
+        let now = new Date();
+        if(startDate>now) throw "Start Date is a future date!";
+        var diff = Math.abs(now.getTime()-startDate.getTime());
+        if(diff/(1000*60*60*24)>30)
+        throw "Start date is beyond 30 days!";
          this._startDate = startDate.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
-        else
-       {  
-            throw "Invalid Start date "+startDate;
         }
-    }
     get notes(){
         return this._notes;
     }
