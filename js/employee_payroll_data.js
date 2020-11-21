@@ -7,6 +7,7 @@ class EmployeePayrollData{
         this.department = params[4];
         this.profile = params[5];
         this.notes = params[6];
+        this.id = params[7];
     }
     get name(){
         return this._name;
@@ -71,7 +72,9 @@ class EmployeePayrollData{
     }
     toString(){
         //const options = { year: 'numeric', month: 'long' , day: 'numeric'};
-        //const empDate = this.startDate === undefined ? "undefined":this.startDate.toLocaleDateString("en-US",options);
+        //const empDate = this.startDate == undefined ? "undefined":this.startDate.toLocaleDateString("en-US",options);
+       // var date = this.startDate.split(', ')[0];
+        //console.log(date);
         return  "ID = "+this.id+"Name = "+this.name+", Salary = "+this.salary+" ,Gender = "+this.gender+" ,Start date = "+this.startDate+" ,Department = "+this.department+" ,Profile = "+this.profile+" ,Notes = "+this.notes;
     }
 }
