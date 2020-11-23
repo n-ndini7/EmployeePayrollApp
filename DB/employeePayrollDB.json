@@ -1,19 +1,6 @@
 {
   "EmployeePayrollDB": [
     {
-      "id": 1,
-      "_name": "Mark",
-      "_gender": "Male",
-      "_department": [
-        "Engineer",
-        "Finance"
-      ],
-      "_salary": "₹ 450000",
-      "_startDate": "21 Nov 2019",
-      "_note": "All In One",
-      "_profile": "../assets/profile-images/Ellipse -3.png"
-    },
-    {
       "id": 2,
       "_name": "Bill Gates",
       "_gender": "Male",
