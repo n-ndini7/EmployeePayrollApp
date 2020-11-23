@@ -22,10 +22,10 @@ const getEmployeePayrollDataFromStorage = () => {
                     <td>${employeePayrollData._gender}</td>
                     <td>${getDeptHtml(employeePayrollData._department)}</td>
                     <td>${employeePayrollData._salary}</td>
-                    <td>${employeePayrollData._startDate}</td>
+                    <td>${stringifyDate(employeePayrollData._startDate)}</td>
                     <td>
-                        <img name="${employeePayrollData._name}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-                        <img name="${employeePayrollData._name}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+                        <img id="${employeePayrollData.id}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+                        <img id="${employeePayrollData.id}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
                     </td>
                 </tr>
     `;
@@ -37,14 +37,15 @@ const getEmployeePayrollDataFromStorage = () => {
    if(answer){
     var answer2 = window.confirm("Warning!! \nData once removed cannot be restored. \n Do you still wish to continue? ");
     if(answer2){
-     let employeePayrollData = empPayrollList.find( empData => empData._name == node.name);
+     let employeePayrollData = empPayrollList.find( empData => empData.id == node.id);
    if(!employeePayrollData) return;
-   const index = empPayrollList.map(empData => empData._name).indexOf(employeePayrollData._name);
+   const index = empPayrollList.map(empData => empData.id).indexOf(employeePayrollData.id);
    empPayrollList.splice(index,1);
    localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
    document.querySelector(".emp-count").textContent = empPayrollList.length;
    alert("User Details of "+node.name+" deleted successfully!");
    createInnerHtml();
+   location.reload();
    }else{
     location.reload();
 }
@@ -54,12 +55,13 @@ const getEmployeePayrollDataFromStorage = () => {
     location.reload();
    }
 };
+
 const update = (node) => {
     var answer = window.confirm("Are you sure you want to update the details of "+node.name+" from database ?");
    if(answer){
-       var answer2 = window.confirm("!!Warning!! \n \nData once updated cannot be restored. \n Do you still wish to continue? ");
+       var answer2 = window.confirm("!!Warning!! \nData once updated cannot be restored. \n Do you still wish to continue? ");
         if(answer2){
-    let employeePayrollData = empPayrollList.find(empData => empData._name == node.name)
+    let employeePayrollData = empPayrollList.find(empData => empData.id == node.id)
     console.log(employeePayrollData);
     if(!employeePayrollData) return;
     localStorage.setItem('editEmp',JSON.stringify(employeePayrollData))
@@ -79,3 +81,7 @@ const update = (node) => {
      }
      return deptHtml;
  };
+
+
+ // .....clearing local storage to connect to JSON server 
+//localStorage.clear();
