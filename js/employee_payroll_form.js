@@ -47,14 +47,33 @@ const save = (event) => {
   event.stopPropagation();
    try{
      setEmployeePayrollObject();
-     createAndUpdateStorage();
-     resetForm();
-     window.location.replace(site_properties.home_page);
-   }catch(e){
-     return;
-   }
+     if(site_properties.use_local_storage.match("true")){
+        createAndUpdateStorage();
+        resetForm();
+        window.location.replace(site_properties.home_page);
+        }else{
+          PostDataToJsonServer();
+        }
+      }catch(e){
+        return;
+      }
 };
-
+function PostDataToJsonServer(){
+    let postURL = site_properties.server_url;
+    let methodCall = "POST";
+    if(isUpdate){
+      methodCall = "PUT";
+      postURL = postURL + employeePayrollObj.id.toString();
+    }
+    makeServiceCall(methodCall, postURL, true, employeePayrollObj)
+                  .then(responseText => {
+                    resetForm();
+                    window.location.replace(site_properties.home_page);
+                  })
+                  .catch(error => {
+                    throw error;
+                  });
+}
 function currencyConvertorToINR($number ) {
     return (isNaN(parseInt($number))) ?  0 : '₹ ' +  parseInt($number).toLocaleString('en-IN')
   }
