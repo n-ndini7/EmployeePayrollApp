@@ -1,14 +1,4 @@
 class EmployeePayrollData{
-    constructor(...params){
-        this.name = params[0];
-        this.salary = params[1];
-        this.gender=params[2];
-        this.startDate = params[3];
-        this.department = params[4];
-        this.profile = params[5];
-        this.notes = params[6];
-        this.id = params[7];
-    }
     get name(){
         return this._name;
     }
@@ -51,11 +41,6 @@ class EmployeePayrollData{
     }
     //setter with regex for validation of start date
     set startDate(startDate){
-        let now = new Date();
-        if(startDate>now) throw "Start Date is a future date!";
-        var diff = Math.abs(now.getTime()-startDate.getTime());
-        if(diff/(1000*60*60*24)>30)
-        throw "Start date is beyond 30 days!";
          this._startDate = startDate.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
         }
     get notes(){
