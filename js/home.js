@@ -1,15 +1,34 @@
 let empPayrollList;
 window.addEventListener("DOMContentLoaded", (event) => {
-   empPayrollList = getEmployeePayrollDataFromStorage();
-  // console.log(empPayrollList);
-   document.querySelector(".emp-count").textContent = empPayrollList.length;
-   createInnerHtml();
-   localStorage.removeItem('editEmp');
- });
- 
-const getEmployeePayrollDataFromStorage = () => {
-    return localStorage.getItem('EmployeePayrollList')?JSON.parse(localStorage.getItem('EmployeePayrollList')):[];
+    if(site_properties.use_local_storage.match("true")){
+        getEmployeeFromStorage();
+    }else getEmployeeFromServer();
+});
+
+const processEmpDataResponse = () => {
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
+    createInnerHtml();
+    localStorage.removeItem("editEmp");
 };
+
+const getEmployeePayrollDataFromStorage = () => {
+    empPayrollList = localStorage.getItem("EmployeePayrollList") ? JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+    processEmpDataResponse();    
+};
+
+const getEmployeeFromServer = () => {
+    makeServiceCall("GET", site_properties.server_url, true)
+                   .then(responseText => {
+                       empPayrollList = JSON.parse(responseText);
+                       processEmpDataResponse();
+                   })
+                   .catch(error => {
+                       console.log("GET error status :"+JSON.stringify(error));
+                       empPayrollList = [];
+                       processEmpDataResponse();
+                   });
+};
+
  const createInnerHtml = () => {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
     if(empPayrollList.length == 0) return;
