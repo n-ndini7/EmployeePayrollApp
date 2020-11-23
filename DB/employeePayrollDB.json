@@ -3,27 +3,27 @@
     {
       "id": 1,
       "_name": "Mark",
-      "_gender": "male",
+      "_gender": "Male",
       "_department": [
-        "Engineering",
+        "Engineer",
         "Finance"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
+      "_salary": "₹ 450000",
+      "_startDate": "21 Nov 2019",
       "_note": "All In One",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png"
+      "_profile": "../assets/profile-images/Ellipse -3.png"
     },
     {
       "id": 2,
       "_name": "Bill Gates",
-      "_gender": "male",
+      "_gender": "Male",
       "_department": [
-        "Engineering"
+        "Engineer"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
+      "_salary": "₹ 410000",
+      "_startDate": "19 Nov 2019",
       "_note": "Terrific Engineer",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png"
+      "_profile": "../assets/profile-images/Ellipse -3.png"
     },
     {
       "_name": "Sameeksha Goyal",
@@ -32,10 +32,10 @@
         "Sales",
         "HR"
       ],
-      "_salary": "423000",
+      "_salary": "₹ 423000",
       "_startDate": "20 Nov 2020",
       "_note": "Client Server Test entry",
-      "_picture": "../assets/profile-images/Ellipse -3.png",
+      "_profile": "../assets/profile-images/Ellipse -1.png",
       "id": 3
     }
   ]
