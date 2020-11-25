@@ -112,6 +112,4 @@ const update = (node) => {
      return deptHtml;
  };
 
-
- // .....clearing local storage to connect to JSON server 
 //localStorage.clear();
