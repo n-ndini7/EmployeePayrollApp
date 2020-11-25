@@ -162,9 +162,9 @@ const setForm = () => {
     setSelectedValues("[name=profile]", employeePayrollObj._profile);
     setSelectedValues("[name=gender]", employeePayrollObj._gender);
     setSelectedValues("[name=department]", employeePayrollObj._department);
-    let sal = employeePayrollObj._salary.slice(1);
-    document.querySelector("#salary").value = sal;
-    document.querySelector(".salary-output").textContent = sal;
+    let sal = employeePayrollObj._salary.slice(1).replaceAll(",","");
+    document.querySelector("#salary").value = parseInt(sal);
+    document.querySelector(".salary-output").textContent = parseInt(sal);
     setValue("#notes", employeePayrollObj._note);
     let date = stringifyDate(employeePayrollObj._startDate).split(" ");
     let month = new Date(date).getMonth() + 1;
@@ -179,6 +179,7 @@ const resetForm = () => {
   unsetSelectedValues("[name=gender]");
   unsetSelectedValues("[name=department]");
   setValue("#salary", "");
+  document.querySelector(".salary-output").textContent="400000";
   setValue("#notes", "");
   setSelectedIndex("#day", 0);
   setSelectedIndex("#month", 0);
