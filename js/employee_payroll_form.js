@@ -1,3 +1,4 @@
+
 let isUpdate = false;
 let employeePayrollObj = {};
 
@@ -62,24 +63,26 @@ function PostDataToJsonServer(){
     let postURL = site_properties.server_url;
     let methodCall = "POST";
     if(isUpdate){
+      alert("Data updated successfully!");
       methodCall = "PUT";
       postURL = postURL + employeePayrollObj.id.toString();
-    }
-    makeServiceCall(methodCall, postURL, true, employeePayrollObj)
-                  .then(responseText => {
-                    resetForm();
-                    window.location.replace(site_properties.home_page);
-                  })
-                  .catch(error => {
-                    throw error;
-                  });
+        }
+        else{
+          alert("Data added successfully!");
+        }
+        makeServiceCall(methodCall, postURL, true, employeePayrollObj)
+        .then(responseText => {
+          resetForm();
+          window.location.replace(site_properties.home_page);
+        })
+        .catch(error => {
+          throw error;
+        });
 }
 function currencyConvertorToINR($number ) {
     return (isNaN(parseInt($number))) ?  0 : '₹ ' +  parseInt($number).toLocaleString('en-IN')
   }
-  function submitAlert(){
-      alert("Data added successfully!");
-  }
+
 function createAndUpdateStorage(){
   let employeeList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
   if(employeeList){
