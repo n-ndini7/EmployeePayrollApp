@@ -130,7 +130,8 @@ const setEmployeePayrollObject = () => {
  var month = document.getElementById("month").value;
  var year = document.getElementById("year").value;
  employeePayrollObj._note = document.getElementById("notes").value;
- employeePayrollObj._startDate = new Date(parseInt(year), parseInt(month) - 1 , parseInt(day));
+ employeePayrollObj._startDate = stringifyDate(new Date(parseInt(year), parseInt(month) - 1 , parseInt(day)));
+ console.log(employeePayrollObj._startDate);
 };
 
 const setValue = (id, value) => {

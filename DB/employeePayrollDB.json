@@ -8,7 +8,7 @@
         "Engineer"
       ],
       "_salary": "₹ 4,72,200",
-      "_startDate": "2019-11-18T18:30:00.000Z",
+      "_startDate": "2 Nov 2020",
       "_note": "Terrific Engineer",
       "_profile": "../assets/profile-images/Ellipse -3.png"
     },
@@ -20,24 +20,23 @@
         "HR",
         "Finance"
       ],
-      "_salary": "₹ 3,84,000",
+      "_salary": "₹ 4,83,600",
       "_note": "Post to the JSON server entry!",
-      "_startDate": "2020-11-09T18:30:00.000Z",
+      "_startDate": "14 Nov 2020",
       "id": 4
     },
     {
       "_name": "Kajol Bairwa",
-      "_profile": "../assets/profile-images/Ellipse -1.png",
+      "_profile": "../assets/profile-images/Ellipse 1.png",
       "_gender": "Female",
       "_department": [
         "HR",
-        "Sales",
         "Finance",
         "Engineer"
       ],
-      "_salary": "₹ 4,89,300",
+      "_salary": "₹ 4,77,400",
       "_note": "check entry!",
-      "_startDate": "2020-11-18T18:30:00.000Z",
+      "_startDate": "16 Nov 2020",
       "id": 5
     },
     {
@@ -50,7 +49,7 @@
       ],
       "_salary": "₹ 4,49,300",
       "_note": "check entry!",
-      "_startDate": "2020-11-14T18:30:00.000Z",
+      "_startDate": "23 Nov 2020",
       "id": 6
     }
   ]
