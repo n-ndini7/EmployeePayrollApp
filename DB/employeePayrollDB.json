@@ -7,23 +7,10 @@
       "_department": [
         "Engineer"
       ],
-      "_salary": "₹ 410000",
-      "_startDate": "19 Nov 2019",
+      "_salary": "₹ 4,72,200",
+      "_startDate": "2019-11-18T18:30:00.000Z",
       "_note": "Terrific Engineer",
       "_profile": "../assets/profile-images/Ellipse -3.png"
-    },
-    {
-      "_name": "Sameeksha Goyal",
-      "_gender": "Female",
-      "_department": [
-        "Sales",
-        "HR"
-      ],
-      "_salary": "₹ 423000",
-      "_startDate": "20 Nov 2020",
-      "_note": "Client Server Test entry",
-      "_profile": "../assets/profile-images/Ellipse -1.png",
-      "id": 3
     },
     {
       "_name": "Raj Nandini",
@@ -33,10 +20,38 @@
         "HR",
         "Finance"
       ],
-      "_salary": "₹ 4,69,600",
+      "_salary": "₹ 3,84,000",
       "_note": "Post to the JSON server entry!",
       "_startDate": "2020-11-09T18:30:00.000Z",
       "id": 4
+    },
+    {
+      "_name": "Kajol Bairwa",
+      "_profile": "../assets/profile-images/Ellipse -1.png",
+      "_gender": "Female",
+      "_department": [
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer"
+      ],
+      "_salary": "₹ 4,89,300",
+      "_note": "check entry!",
+      "_startDate": "2020-11-18T18:30:00.000Z",
+      "id": 5
+    },
+    {
+      "_name": "Zoeben Wilson",
+      "_profile": "../assets/profile-images/Ellipse -8.png",
+      "_gender": "Male",
+      "_department": [
+        "Sales",
+        "Finance"
+      ],
+      "_salary": "₹ 4,49,300",
+      "_note": "check entry!",
+      "_startDate": "2020-11-14T18:30:00.000Z",
+      "id": 6
     }
   ]
 }

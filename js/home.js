@@ -87,7 +87,7 @@ const getEmployeeFromServer = () => {
 };
 
 const update = (node) => {
-    var answer = window.confirm("Are you sure you want to update the details of "+node.name+" from database ?");
+    var answer = window.confirm("Are you sure you want to update the details of Employee with EmployeeID : "+node.id+" from database ?");
    if(answer){
        var answer2 = window.confirm("!!Warning!! \nData once updated cannot be restored. \n Do you still wish to continue? ");
         if(answer2){

@@ -1,3 +1,4 @@
+
 let isUpdate = false;
 let employeePayrollObj = {};
 
@@ -62,24 +63,26 @@ function PostDataToJsonServer(){
     let postURL = site_properties.server_url;
     let methodCall = "POST";
     if(isUpdate){
+      alert("Data updated successfully!");
       methodCall = "PUT";
       postURL = postURL + employeePayrollObj.id.toString();
-    }
-    makeServiceCall(methodCall, postURL, true, employeePayrollObj)
-                  .then(responseText => {
-                    resetForm();
-                    window.location.replace(site_properties.home_page);
-                  })
-                  .catch(error => {
-                    throw error;
-                  });
+        }
+        else{
+          alert("Data added successfully!");
+        }
+        makeServiceCall(methodCall, postURL, true, employeePayrollObj)
+        .then(responseText => {
+          resetForm();
+          window.location.replace(site_properties.home_page);
+        })
+        .catch(error => {
+          throw error;
+        });
 }
 function currencyConvertorToINR($number ) {
     return (isNaN(parseInt($number))) ?  0 : '₹ ' +  parseInt($number).toLocaleString('en-IN')
   }
-  function submitAlert(){
-      alert("Data added successfully!");
-  }
+
 function createAndUpdateStorage(){
   let employeeList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
   if(employeeList){
@@ -162,9 +165,9 @@ const setForm = () => {
     setSelectedValues("[name=profile]", employeePayrollObj._profile);
     setSelectedValues("[name=gender]", employeePayrollObj._gender);
     setSelectedValues("[name=department]", employeePayrollObj._department);
-    let sal = employeePayrollObj._salary.slice(1);
-    document.querySelector("#salary").value = sal;
-    document.querySelector(".salary-output").textContent = sal;
+    let sal = employeePayrollObj._salary.slice(1).replaceAll(",","");
+    document.querySelector("#salary").value = parseInt(sal);
+    document.querySelector(".salary-output").textContent = parseInt(sal);
     setValue("#notes", employeePayrollObj._note);
     let date = stringifyDate(employeePayrollObj._startDate).split(" ");
     let month = new Date(date).getMonth() + 1;
@@ -179,6 +182,7 @@ const resetForm = () => {
   unsetSelectedValues("[name=gender]");
   unsetSelectedValues("[name=department]");
   setValue("#salary", "");
+  document.querySelector(".salary-output").textContent="400000";
   setValue("#notes", "");
   setSelectedIndex("#day", 0);
   setSelectedIndex("#month", 0);
